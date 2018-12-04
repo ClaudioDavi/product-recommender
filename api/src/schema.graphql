@@ -4,5 +4,5 @@ type Product {
   hashtags: [Tag] @relation(name:"Hashtags" direction: "OUT")
 }
 type Tag {
-  name: ID!
+  value: ID!
 }

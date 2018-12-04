@@ -54,24 +54,15 @@ class UserList extends React.Component {
     return (
       <Query
         query={gql`
-          query usersPaginateQuery(
-            $first: Int
-            $offset: Int
-            $orderBy: _UserOrdering
-          ) {
-            User(first: $first, offset: $offset, orderBy: $orderBy) {
-              id
+          {
+            Product {
               name
-              avgStars
-              numReviews
+              hashtags {
+                name
+              }
             }
           }
         `}
-        variables={{
-          first: this.state.rowsPerPage,
-          offset: this.state.rowsPerPage * this.state.page,
-          orderBy: this.state.orderBy + "_" + this.state.order
-        }}
       >
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
@@ -100,57 +91,15 @@ class UserList extends React.Component {
                         </TableSortLabel>
                       </Tooltip>
                     </TableCell>
-                    <TableCell
-                      key="avgStars"
-                      sortDirection={orderBy === "avgStars" ? order : false}
-                      numeric
-                    >
-                      <Tooltip
-                        title="Sort"
-                        placement="bottom-end"
-                        enterDelay={300}
-                      >
-                        <TableSortLabel
-                          active={orderBy === "avgStars"}
-                          direction={order}
-                          onClick={() => this.handleSortRequest("avgStars")}
-                        >
-                          Average Stars
-                        </TableSortLabel>
-                      </Tooltip>
-                    </TableCell>
-                    <TableCell
-                      key="numReviews"
-                      sortDirection={orderBy === "numReviews" ? order : false}
-                      numeric
-                    >
-                      <Tooltip
-                        title="Sort"
-                        placement="bottom-start"
-                        enterDelay={300}
-                      >
-                        <TableSortLabel
-                          active={orderBy === "numReviews"}
-                          direction={order}
-                          onClick={() => this.handleSortRequest("numReviews")}
-                        >
-                          Number of Reviews
-                        </TableSortLabel>
-                      </Tooltip>
-                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {data.User.map(n => {
+                  {data.Product.map(n => {
                     return (
                       <TableRow key={n.id}>
                         <TableCell component="th" scope="row">
                           {n.name}
                         </TableCell>
-                        <TableCell numeric>
-                          {n.avgStars ? n.avgStars.toFixed(2) : "-"}
-                        </TableCell>
-                        <TableCell numeric>{n.numReviews}</TableCell>
                       </TableRow>
                     );
                   })}

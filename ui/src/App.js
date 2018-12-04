@@ -12,7 +12,7 @@ class App extends Component {
             className="App-logo"
             alt="logo"
           />
-          <h1 className="App-title">Welcome to THIS</h1>
+          <h1 className="App-title">Product Recommender App</h1>
         </header>
 
         <UserList />

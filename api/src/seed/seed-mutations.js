@@ -16,79 +16,100 @@ export default /* GraphQL */ `
       id
       name
     }
-    t1: CreateTag(name: "#crocante") {
-      name
+    t1: CreateTag(value: "#crocante") {
+      value
     }
-    t2: CreateTag(name: "#sorvete") {
-      name
+    t2: CreateTag(value: "#sorvete") {
+      value
     }
-    t3: CreateTag(name: "#acai") {
-      name
+    t3: CreateTag(value: "#acai") {
+      value
     }
-    t4: CreateTag(name: "#congelado") {
-      name
+    t4: CreateTag(value: "#congelado") {
+      value
     }
-    t5: CreateTag(name: "#doce") {
-      name
+    t5: CreateTag(value: "#doce") {
+      value
     }
-    t6: CreateTag(name: "#verao"){
-      name
+    t6: CreateTag(value: "#verao"){
+      value
     }
-    t7: CreateTag(name: "#saudavel") {
-      name
+    t7: CreateTag(value: "#saudavel") {
+      value
     }
-    t8: CreateTag(name: "#vegetariano") {
-      name
+    t8: CreateTag(value: "#vegetariano") {
+      value
     }
-    tp1: AddProductHashtags(from: { id: "p1" }, to: { name: "#sorvete" }) {
+    tp1: AddProductHashtags(from: { id: "p1" }, to: { value: "#sorvete" }) {
       from {
         id
       }
     }
-    tp2: AddProductHashtags(from: { id: "p1" }, to: { name: "#congelado" }) {
+    tp2: AddProductHashtags(from: { id: "p1" }, to: { value: "#congelado" }) {
       from {
         id
       }
     }
-    tp3: AddProductHashtags(from: { id: "p1" }, to: { name: "#verao" }) {
+    tp3: AddProductHashtags(from: { id: "p1" }, to: { value: "#verao" }) {
       from {
         id
       }
     }
-    tp4: AddProductHashtags(from: { id: "p2" }, to: { name: "#acai" }) {
+    tp4: AddProductHashtags(from: { id: "p2" }, to: { value: "#acai" }) {
       from {
         id
       }
     }
-    tp5: AddProductHashtags(from: { id: "p2" }, to: { name: "#congelado" }) {
+    tp5: AddProductHashtags(from: { id: "p2" }, to: { value: "#congelado" }) {
       from {
         id
       }
     }
-    tp6: AddProductHashtags(from: { id: "p2" }, to: { name: "#verao" }) {
+    tp6: AddProductHashtags(from: { id: "p2" }, to: { value: "#verao" }) {
       from {
         id
       }
     }
-    tp7: AddProductHashtags(from: { id: "p2" }, to: { name: "#saudavel" }) {
+    tp7: AddProductHashtags(from: { id: "p2" }, to: { value: "#saudavel" }) {
       from {
         id
       }
     }
-    tp8: AddProductHashtags(from: { id: "p3" }, to: { name: "#saudavel" }) {
+    tp8: AddProductHashtags(from: { id: "p3" }, to: { value: "#saudavel" }) {
       from {
         id
       }
     }
-    tp9: AddProductHashtags(from: { id: "p3" }, to: { name: "#vegetariano" }) {
+    tp9: AddProductHashtags(from: { id: "p3" }, to: { value: "#vegetariano" }) {
       from {
         id
       }
     }
-    tp10: AddProductHashtags(from: { id: "p3" }, to: { name: "#crocante" }) {
+    tp10: AddProductHashtags(from: { id: "p3" }, to: { value: "#crocante" }) {
       from {
         id
       }
     }
+    tp11: AddProductHashtags(from: { id:"p4"}, to: {value: "#sorvete"}) {
+      from {
+        id
+      }
+    }
+    tp12: AddProductHashtags(from: {id: "p4"}, to: { value: "#saudavel"}) {
+      from {
+        id
+      }
+    }
+    tp13: AddProductHashtags(from: {id: "p4"}, to: { value: "#verao"}) {
+      from {
+        id
+      }
+    }
+    tp14: AddProductHashtags(from: {id: "p4"}, to: { value: "#doce"}) {
+      from {
+        id
+      }
+    }
+
   }
 `;
