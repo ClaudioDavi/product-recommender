@@ -4,5 +4,10 @@ type Product {
   hashtags: [Tag] @relation(name:"Hashtags" direction: "OUT")
 }
 type Tag {
-  value: ID!
+  id: ID!
+  value: String!
+}
+type Query {
+  products(id: ID, name: String, first: Int = 10, offset: Int = 0): [Product]
+  hashtags(id: ID, value: String, first: Int = 10, offset: Int = 0): [Tag]
 }

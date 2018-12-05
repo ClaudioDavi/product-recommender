@@ -12,3 +12,10 @@ export const typeDefs = fs
     process.env.GRAPHQL_SCHEMA || path.join(__dirname, "schema.graphql")
   )
   .toString("utf-8");
+
+export const resolvers = {
+  Query: {
+    products: neo4jgraphql,
+    hashtags: neo4jgraphql
+  }
+}

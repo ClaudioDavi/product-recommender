@@ -53,13 +53,11 @@ class UserList extends React.Component {
     const { order, orderBy } = this.state;
     return (
       <Query
+        variables={{ $filter: "Sorverte" }}
         query={gql`
           {
-            Product {
+            products(first: 20) {
               name
-              hashtags {
-                name
-              }
             }
           }
         `}
@@ -94,7 +92,7 @@ class UserList extends React.Component {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {data.Product.map(n => {
+                  {data.products.map(n => {
                     return (
                       <TableRow key={n.id}>
                         <TableCell component="th" scope="row">

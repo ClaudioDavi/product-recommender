@@ -110,6 +110,11 @@ export default /* GraphQL */ `
         id
       }
     }
+    tp15: AddProductHashtags(from: {id: "p1"}, to: { value: "#doce"}) {
+      from {
+        id
+      }
+    }
 
   }
 `;
