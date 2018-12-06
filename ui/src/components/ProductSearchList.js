@@ -5,20 +5,23 @@ import gql from "graphql-tag";
 import Product from "./Product";
 
 const GET_PRODUCTS = gql`
-  {
-    products {
+  query search($filter: String!) {
+    search(filter: $filter) {
       name
       id
       hashtags {
         value
       }
+      similar {
+        name
+      }
     }
   }
 `;
 
-export default function() {
+export default function({ name }) {
   return (
-    <Query query={GET_PRODUCTS}>
+    <Query query={GET_PRODUCTS} variables={{ filter: name }}>
       {({ loading, error, data }) => {
         if (loading) return "Loading...";
         if (error) return `Error! ${error.message}`;
@@ -27,13 +30,13 @@ export default function() {
           console.log({ data });
         }
 
-        if (!data.products) {
+        if (!data.search) {
           return null;
         }
 
         return (
           <Item.Group divided>
-            {data.products.map(p => (
+            {data.search.map(p => (
               <Product key={p.id} name={p.name} hashtags={p.hashtags} />
             ))}
           </Item.Group>

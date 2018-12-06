@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import ProductSearch from "./ProductSearch";
 import ProductList from "./ProductList";
+import ProductSearchList from "./ProductSearchList";
 
 class App extends Component {
   constructor(props) {
+    super(props);
     this.state = {
-      name: "Açaí"
+      name: "sorvete"
     };
   }
   setSearchItem = name => {
@@ -18,7 +20,8 @@ class App extends Component {
     return (
       <div>
         <ProductSearch setSearchItem={this.setSearchItem} name={name} />
-        <ProductList name={name} />
+        {name ? <ProductSearchList name={name} /> : <ProductList />}
+        {name}
       </div>
     );
   }
