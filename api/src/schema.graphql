@@ -2,6 +2,7 @@ type Product {
   id: ID!
   name: String
   hashtags: [Tag] @relation(name:"Hashtags" direction: "OUT")
+  similar(first: Int=3, offset:Int=0): [Product]
 }
 type Tag {
   id: ID!
@@ -10,4 +11,5 @@ type Tag {
 type Query {
   products(id: ID, name: String, first: Int = 10, offset: Int = 0): [Product]
   hashtags(id: ID, value: String, first: Int = 10, offset: Int = 0): [Tag]
+  search(filter: String!, limit: Int=3, offset: Int=0): [Product]
 }
