@@ -3,6 +3,8 @@ import { Item } from "semantic-ui-react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Product from "./Product";
+import ListItem from "@material-ui/core/ListItem";
+import Typography from "@material-ui/core/Typography";
 
 const GET_PRODUCTS = gql`
   query search($filter: String!) {
@@ -11,6 +13,9 @@ const GET_PRODUCTS = gql`
       id
       similar {
         name
+      }
+      tags {
+        value
       }
     }
   }
@@ -33,19 +38,27 @@ export default function({ name }) {
 
         return (
           <div>
-            <Item.Group divided>
+            <ListItem>
               {data.search.map(p => (
-                <Product key={p.id} name={p.name} hashtags={p.hashtags} />
+                <Product key={p.id} name={p.name} similar={p.similar} />
               ))}
-            </Item.Group>
-            <Item.Group divided>
-              <Item.Extra>
+            </ListItem>
+            <div>
+              <Typography variant="overline" gutterBottom>
                 Você vai curtir também:
-                {data.search.map(p =>
-                  p.similar.map(s => <Product key={s.id} name={s.name} />)
-                )}
-              </Item.Extra>
-            </Item.Group>
+              </Typography>
+
+              {data.search.map(p =>
+                p.similar.map(s => <Product key={s.id} name={s.name} />)
+              )}
+            </div>
+            {data.search.map(p =>
+              p.tags.map(t => (
+                <Typography variant="overline" gutterBottom>
+                  {t.value}
+                </Typography>
+              ))
+            )}
           </div>
         );
       }}

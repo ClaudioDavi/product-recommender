@@ -1,5 +1,4 @@
 import React from "react";
-import { Item } from "semantic-ui-react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Product from "./Product";
@@ -20,20 +19,16 @@ export default function() {
         if (loading) return "Loading...";
         if (error) return `Error! ${error.message}`;
 
-        {
-          console.log({ data });
-        }
-
         if (!data.products) {
           return null;
         }
 
         return (
-          <Item.Group divided>
+          <div>
             {data.products.map(p => (
-              <Product key={p.id} name={p.name} similar={p.hashtags} />
+              <Product key={p.id} name={p.name} />
             ))}
-          </Item.Group>
+          </div>
         );
       }}
     </Query>

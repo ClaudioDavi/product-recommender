@@ -24,7 +24,19 @@ export const resolvers = {
     }
   },
   Product: {
-    hashtags: neo4jgraphql,
+    tags: (product, _, context) => {
+      let session = context.driver.session();
+      let params = { id: product.id };
+      let query = `MATCH(tag)<-[:Hashtags]-(prod:Product) where prod.id = $id return tag`;
+      return session
+        .run(query, params)
+        .then(result => {
+          return result.records.map(record => {
+            return record.get("tag").properties;
+          });
+        })
+        .then(items => (items ? items : []));
+    },
     similar: (product, _, context) => {
       let session = context.driver.session();
       let params = { id: product.id };

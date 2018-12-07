@@ -1,7 +1,7 @@
 type Product {
   id: ID!
   name: String
-  hashtags: [Tag] @relation(name:"Hashtags" direction: "OUT")
+  tags: [Tag] @relation(name:"Hashtags" direction: "OUT")
   similar(first: Int=3, offset:Int=0): [Product]
 }
 type Tag {

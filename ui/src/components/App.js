@@ -12,7 +12,6 @@ class App extends Component {
   }
   setSearchItem = name => {
     this.setState({ name });
-    console.log("state set");
   };
 
   render() {
@@ -20,7 +19,7 @@ class App extends Component {
     return (
       <div>
         <ProductSearch setSearchItem={this.setSearchItem} name={name} />
-        {name ? <ProductSearchList name={name} /> : <ProductList />}
+        {name ? <ProductSearchList name={name} /> : []}
       </div>
     );
   }

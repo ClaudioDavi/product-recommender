@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Input, Button } from "semantic-ui-react";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 class ProductSearch extends Component {
   constructor(props) {
@@ -23,15 +24,15 @@ class ProductSearch extends Component {
   render() {
     const { value } = this.state;
     return (
-      <Input
-        onChange={this.handleChange}
-        value={value}
-        fluid
-        placeholder="Product Name"
-      >
-        <input />
+      <div>
+        <TextField
+          onChange={this.handleChange}
+          value={value}
+          fluid="true"
+          placeholder="Product Name"
+        />
         <Button onClick={this.setName}>Search</Button>
-      </Input>
+      </div>
     );
   }
 }
