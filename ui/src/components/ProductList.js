@@ -9,9 +9,6 @@ const GET_PRODUCTS = gql`
     products {
       name
       id
-      hashtags {
-        value
-      }
     }
   }
 `;
@@ -34,7 +31,7 @@ export default function() {
         return (
           <Item.Group divided>
             {data.products.map(p => (
-              <Product key={p.id} name={p.name} hashtags={p.hashtags} />
+              <Product key={p.id} name={p.name} similar={p.hashtags} />
             ))}
           </Item.Group>
         );

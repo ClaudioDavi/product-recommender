@@ -7,11 +7,6 @@ class Product extends Component {
       <Item>
         <Item.Content verticalAlign="middle">
           <Item.Header>{this.props.name}</Item.Header>
-          <Item.Extra>
-            {this.props.hashtags.map(tag => (
-              <Label key={tag.value}>{tag.value}</Label>
-            ))}
-          </Item.Extra>
           {this.props.similar && (
             <Item.Extra>
               You may also like:

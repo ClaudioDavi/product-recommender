@@ -3,17 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
-import { ApolloClient, ApolloLink } from "apollo-boost";
-import { ApolloProvider } from "react-apollo";
-import { onError } from "apollo-link-error";
+import { ApolloClient } from "apollo-boost";
+import { createHttpLink } from "apollo-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
 
-const errorLink = onError(({ graphQLErrors }) => {
-  if (graphQLErrors) graphQLErrors.map(({ message }) => console.log(message));
-});
+import { ApolloProvider } from "react-apollo";
 
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_GRAPHQL_URI,
-  link: ApolloLink.from([errorLink])
+  link: createHttpLink({ uri: process.env.REACT_APP_GRAPHQL_URI }),
+  cache: new InMemoryCache()
 });
 
 console.log(process.env.REACT_APP_GRAPHQL_URI);

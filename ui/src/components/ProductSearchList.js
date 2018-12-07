@@ -9,9 +9,6 @@ const GET_PRODUCTS = gql`
     search(filter: $filter) {
       name
       id
-      hashtags {
-        value
-      }
       similar {
         name
       }
@@ -35,11 +32,21 @@ export default function({ name }) {
         }
 
         return (
-          <Item.Group divided>
-            {data.search.map(p => (
-              <Product key={p.id} name={p.name} hashtags={p.hashtags} />
-            ))}
-          </Item.Group>
+          <div>
+            <Item.Group divided>
+              {data.search.map(p => (
+                <Product key={p.id} name={p.name} hashtags={p.hashtags} />
+              ))}
+            </Item.Group>
+            <Item.Group divided>
+              <Item.Extra>
+                Você vai curtir também:
+                {data.search.map(p =>
+                  p.similar.map(s => <Product key={s.id} name={s.name} />)
+                )}
+              </Item.Extra>
+            </Item.Group>
+          </div>
         );
       }}
     </Query>

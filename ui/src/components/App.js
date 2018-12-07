@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "sorvete"
+      name: ""
     };
   }
   setSearchItem = name => {
@@ -21,7 +21,6 @@ class App extends Component {
       <div>
         <ProductSearch setSearchItem={this.setSearchItem} name={name} />
         {name ? <ProductSearchList name={name} /> : <ProductList />}
-        {name}
       </div>
     );
   }
