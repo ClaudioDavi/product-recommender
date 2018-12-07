@@ -1,10 +1,17 @@
 import React from "react";
-import { Item } from "semantic-ui-react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Product from "./Product";
-import ListItem from "@material-ui/core/ListItem";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = {
+  ad: {
+    background: "#fbffce"
+  }
+};
 
 const GET_PRODUCTS = gql`
   query search($filter: String!) {
@@ -21,47 +28,49 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-export default function({ name }) {
+function Box({ name, setName, classes }) {
   return (
     <Query query={GET_PRODUCTS} variables={{ filter: name }}>
       {({ loading, error, data }) => {
         if (loading) return "Loading...";
         if (error) return `Error! ${error.message}`;
 
-        {
-          console.log({ data });
-        }
-
         if (!data.search) {
           return null;
         }
 
         return (
-          <div>
-            <ListItem>
+          <Grid container spacing={16}>
+            <Grid item sm={12} md={12}>
+              <br />
+              <Button onClick={() => setName("")} color="secondary">
+                Voltar
+              </Button>
+            </Grid>
+            <Grid item sm={7} md={7}>
+              <Typography variant="overline" gutterBottom>
+                Sua busca por "{name}"
+              </Typography>
               {data.search.map(p => (
-                <Product key={p.id} name={p.name} similar={p.similar} />
+                <Product setName={setName} key={p.id} {...p} />
               ))}
-            </ListItem>
-            <div>
+            </Grid>
+            <Grid item sm={5} md={5} className={classes.ad}>
               <Typography variant="overline" gutterBottom>
                 Você vai curtir também:
               </Typography>
 
               {data.search.map(p =>
-                p.similar.map(s => <Product key={s.id} name={s.name} />)
+                p.similar.map(s => (
+                  <Product setName={setName} key={s.id} {...s} />
+                ))
               )}
-            </div>
-            {data.search.map(p =>
-              p.tags.map(t => (
-                <Typography variant="overline" gutterBottom>
-                  {t.value}
-                </Typography>
-              ))
-            )}
-          </div>
+            </Grid>
+          </Grid>
         );
       }}
     </Query>
   );
 }
+
+export default withStyles(styles)(Box);

@@ -21,7 +21,17 @@ export const resolvers = {
           return record.get("product").properties;
         });
       });
-    }
+    },
+    tagsearch: (root, args, context) => {
+      let session = context.driver.session();
+      let query =
+        "MATCH(product)-[:Hashtags]->(t:Tag) WHERE toLower(t.value) CONTAINS($filter) RETURN product LIMIT $limit";
+      return session.run(query, args).then(result => {
+        return result.records.map(record => {
+          return record.get("product").properties;
+        });
+      });
+    },
   },
   Product: {
     tags: (product, _, context) => {
@@ -43,7 +53,7 @@ export const resolvers = {
       let query = ` MATCH(product:Product) WHERE product.id = $id
                     MATCH (product)-[:Hashtags]->(t:Tag)<-[:Hashtags]-(prod:Product)
                     WITH product, prod, COUNT(*) AS tagOverlap
-                    RETURN prod ORDER BY(tagOverlap) DESC LIMIT 2`;
+                    RETURN prod ORDER BY(tagOverlap) DESC LIMIT 4`;
 
       return session
         .run(query, params)

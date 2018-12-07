@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ProductSearch from "./ProductSearch";
-import ProductList from "./ProductList";
 import ProductSearchList from "./ProductSearchList";
 
 class App extends Component {
@@ -17,10 +16,13 @@ class App extends Component {
   render() {
     const { name } = this.state;
     return (
-      <div>
-        <ProductSearch setSearchItem={this.setSearchItem} name={name} />
-        {name ? <ProductSearchList name={name} /> : []}
-      </div>
+      <>
+        {!name ? (
+          <ProductSearch setSearchItem={this.setSearchItem} />
+        ) : (
+          <ProductSearchList setName={this.setSearchItem} name={name} />
+        )}
+      </>
     );
   }
 }

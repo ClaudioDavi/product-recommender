@@ -104,172 +104,172 @@ export default /* GraphQL */ `
       id
       value
     }
-    tp1: AddProductHashtags(from: { id: "p1" }, to: { id: "t2" }) {
+    tp1: AddProductTags(from: { id: "p1" }, to: { id: "t2" }) {
       from {
         id
       }
     }
-    tp2: AddProductHashtags(from: { id: "p1" }, to: { id: "t3" }) {
+    tp2: AddProductTags(from: { id: "p1" }, to: { id: "t3" }) {
       from {
         id
       }
     }
-    tp3: AddProductHashtags(from: { id: "p1" }, to: { id: "t6" }) {
+    tp3: AddProductTags(from: { id: "p1" }, to: { id: "t6" }) {
       from {
         id
       }
     }
-    tp4: AddProductHashtags(from: { id: "p2" }, to: { id: "t3" }) {
+    tp4: AddProductTags(from: { id: "p2" }, to: { id: "t3" }) {
       from {
         id
       }
     }
-    tp5: AddProductHashtags(from: { id: "p2" }, to: { id: "t4" }) {
+    tp5: AddProductTags(from: { id: "p2" }, to: { id: "t4" }) {
       from {
         id
       }
     }
-    tp6: AddProductHashtags(from: { id: "p2" }, to: { id: "t6" }) {
+    tp6: AddProductTags(from: { id: "p2" }, to: { id: "t6" }) {
       from {
         id
       }
     }
-    tp7: AddProductHashtags(from: { id: "p2" }, to: { id: "t7" }) {
+    tp7: AddProductTags(from: { id: "p2" }, to: { id: "t7" }) {
       from {
         id
       }
     }
-    tp8: AddProductHashtags(from: { id: "p3" }, to: { id: "t7" }) {
+    tp8: AddProductTags(from: { id: "p3" }, to: { id: "t7" }) {
       from {
         id
       }
     }
-    tp9: AddProductHashtags(from: { id: "p3" }, to: { id: "t16" }) {
+    tp9: AddProductTags(from: { id: "p3" }, to: { id: "t16" }) {
       from {
         id
       }
     }
-    tp10: AddProductHashtags(from: { id: "p3" }, to: { id: "t1" }) {
+    tp10: AddProductTags(from: { id: "p3" }, to: { id: "t1" }) {
       from {
         id
       }
     }
-    tp11: AddProductHashtags(from: { id: "p4" }, to: { id: "t2" }) {
+    tp11: AddProductTags(from: { id: "p4" }, to: { id: "t2" }) {
       from {
         id
       }
     }
-    tp12: AddProductHashtags(from: { id: "p4" }, to: { id: "t7" }) {
+    tp12: AddProductTags(from: { id: "p4" }, to: { id: "t7" }) {
       from {
         id
       }
     }
-    tp13: AddProductHashtags(from: { id: "p4" }, to: { id: "t6" }) {
+    tp13: AddProductTags(from: { id: "p4" }, to: { id: "t6" }) {
       from {
         id
       }
     }
-    tp14: AddProductHashtags(from: { id: "p4" }, to: { id: "t5" }) {
+    tp14: AddProductTags(from: { id: "p4" }, to: { id: "t5" }) {
       from {
         id
       }
     }
-    tp15: AddProductHashtags(from: { id: "p1" }, to: { id: "t5" }) {
+    tp15: AddProductTags(from: { id: "p1" }, to: { id: "t5" }) {
       from {
         id
       }
     }
-    tp16: AddProductHashtags(from: { id: "p5" }, to: { id: "t9" }) {
+    tp16: AddProductTags(from: { id: "p5" }, to: { id: "t9" }) {
       from {
         id
       }
     }
-    tp17: AddProductHashtags(from: { id: "p5" }, to: { id: "t7" }) {
+    tp17: AddProductTags(from: { id: "p5" }, to: { id: "t7" }) {
       from {
         id
       }
     }
-    tp18: AddProductHashtags(from: { id: "p5" }, to: { id: "t1" }) {
+    tp18: AddProductTags(from: { id: "p5" }, to: { id: "t1" }) {
       from {
         id
       }
     }
-    tp19: AddProductHashtags(from: { id: "p5" }, to: { id: "t14" }) {
+    tp19: AddProductTags(from: { id: "p5" }, to: { id: "t14" }) {
       from {
         id
       }
     }
-    tp20: AddProductHashtags(from: { id: "p6" }, to: { id: "t10" }) {
+    tp20: AddProductTags(from: { id: "p6" }, to: { id: "t10" }) {
       from {
         id
       }
     }
-    tp21: AddProductHashtags(from: { id: "p6" }, to: { id: "t7" }) {
+    tp21: AddProductTags(from: { id: "p6" }, to: { id: "t7" }) {
       from {
         id
       }
     }
-    tp22: AddProductHashtags(from: { id: "p6" }, to: { id: "t5" }) {
+    tp22: AddProductTags(from: { id: "p6" }, to: { id: "t5" }) {
       from {
         id
       }
     }
-    tp23: AddProductHashtags(from: { id: "p6" }, to: { id: "t14" }) {
+    tp23: AddProductTags(from: { id: "p6" }, to: { id: "t14" }) {
       from {
         id
       }
     }
-    tp24: AddProductHashtags(from: { id: "p6" }, to: { id: "t16" }) {
+    tp24: AddProductTags(from: { id: "p6" }, to: { id: "t16" }) {
       from {
         id
       }
     }
-    tp25: AddProductHashtags(from: { id: "p7" }, to: { id: "t14" }) {
+    tp25: AddProductTags(from: { id: "p7" }, to: { id: "t14" }) {
       from {
         id
       }
     }
-    tp26: AddProductHashtags(from: { id: "p8" }, to: { id: "t4" }) {
+    tp26: AddProductTags(from: { id: "p8" }, to: { id: "t4" }) {
       from {
         id
       }
     }
-    tp27: AddProductHashtags(from: { id: "p8" }, to: { id: "t6" }) {
+    tp27: AddProductTags(from: { id: "p8" }, to: { id: "t6" }) {
       from {
         id
       }
     }
-    tp28: AddProductHashtags(from: { id: "p8" }, to: { id: "t15" }) {
+    tp28: AddProductTags(from: { id: "p8" }, to: { id: "t15" }) {
       from {
         id
       }
     }
-    tp29: AddProductHashtags(from: { id: "p9" }, to: { id: "t8" }) {
+    tp29: AddProductTags(from: { id: "p9" }, to: { id: "t8" }) {
       from {
         id
       }
     }
-    tp30: AddProductHashtags(from: { id: "p9" }, to: { id: "t12" }) {
+    tp30: AddProductTags(from: { id: "p9" }, to: { id: "t12" }) {
       from {
         id
       }
     }
-    tp31: AddProductHashtags(from: { id: "p9" }, to: { id: "t15" }) {
+    tp31: AddProductTags(from: { id: "p9" }, to: { id: "t15" }) {
       from {
         id
       }
     }
-    tp32: AddProductHashtags(from: { id: "p10" }, to: { id: "t8" }) {
+    tp32: AddProductTags(from: { id: "p10" }, to: { id: "t8" }) {
       from {
         id
       }
     }
-    tp33: AddProductHashtags(from: { id: "p10" }, to: { id: "t13" }) {
+    tp33: AddProductTags(from: { id: "p10" }, to: { id: "t13" }) {
       from {
         id
       }
     }
-    tp34: AddProductHashtags(from: {id:"p9"}, to: {id: "t11"}) {
+    tp34: AddProductTags(from: {id:"p9"}, to: {id: "t11"}) {
       from {
         id
       }
